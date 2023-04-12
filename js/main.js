@@ -3,16 +3,16 @@ console.log(nombre)
 
 
 
-function presupuesto (largo, ancho) {
+function presupuesto(largo, ancho) {
 
   //ingresar medidas
 
   while (isNaN(largo)) {
-    largo = parseFloat (prompt("Por favor, ingrese el largo en centímetros:", "40.5"));
+    largo = parseFloat(prompt("Por favor, ingrese el largo en centímetros:", "40.5"));
   }
 
   while (isNaN(ancho)) {
-    ancho = parseFloat (prompt("Ingrese el ancho en centímetros:", "90.3"));
+    ancho = parseFloat(prompt("Ingrese el ancho en centímetros:", "90.3"));
   }
 
   // variantes de molduras
@@ -31,7 +31,7 @@ function presupuesto (largo, ancho) {
   let molduraElegida;
 
   if (elegirMoldura > 0 && elegirMoldura <= molduras.length) {
-    molduraElegida = molduras.find(m=>m.id===elegirMoldura);
+    molduraElegida = molduras.find(m => m.id === elegirMoldura);
 
   } else {
 
@@ -40,12 +40,12 @@ function presupuesto (largo, ancho) {
 
 
   const costoVidrio = parseFloat(ancho * largo / 6.4)
-  const perimetro = parseFloat (2 * ancho + 2 * largo)
+  const perimetro = parseFloat(2 * ancho + 2 * largo)
   const costoOtros = 100
   let costoMoldura;
   const precioMoldura = (molduraElegida.precio);
 
-  
+
 
   if (perimetro < 244) {
     costoMoldura = precioMoldura
@@ -59,13 +59,14 @@ function presupuesto (largo, ancho) {
 
   let precioRedondeado = Math.ceil(precioFinal / 50) * 50;
 
+
+  console.log(molduraElegida);
   console.log(
-  `medidas: ${largo}x${ancho} cm.\n 
+    `medidas: ${largo}x${ancho} cm.\n 
   costo del vidrio: ${parseInt(costoVidrio)}\n 
-  perimetro: ${perimetro}\n 
-  costo de moldura: ${costoMoldura}\n 
+  perimetro: ${perimetro}\n  
   precio final: ${precioRedondeado}`
-);
+  );
 
 
   alert(`El precio para tu marco de ${largo} x ${ancho} es de ${precioRedondeado} pesos`)
